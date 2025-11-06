@@ -1,0 +1,42 @@
+body {
+  font-family: Poppins, sans-serif;
+  background: #f4f7fc;
+  padding: 30px;
+}
+
+.resume {
+  display: flex;
+  width: 700px;
+  margin: auto;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.left {
+  width: 35%;
+  background: #2b6777;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.right {
+  width: 65%;
+  padding: 30px;
+}
+
+h3 {
+  margin-top: 25px;
+  border-bottom: 2px solid #2b6777;
+  padding-bottom: 5px;
+}

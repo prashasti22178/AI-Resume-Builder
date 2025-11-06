@@ -1,0 +1,559 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f8fc;
+  color: #222;
+}
+
+/* 🧭 Header */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 6%;
+  z-index: 100;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #007bff;
+}
+
+.navbar nav a {
+  margin: 0 12px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+  color: #007bff;
+}
+
+/* 🏠 Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 120px 6% 60px;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  color: white;
+  flex-wrap: wrap;
+  min-height: 90vh;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.hero-text button {
+  background: #fff;
+  color: #007bff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-text button:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+/* 🖼️ Slideshow */
+.hero-slideshow {
+  flex: 1;
+  position: relative;
+  height: 400px;
+  max-width: 450px;
+}
+
+.hero-slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-slideshow img.active {
+  opacity: 1;
+}
+
+/* 💡 Info Section */
+.info {
+  text-align: center;
+  padding: 70px 5%;
+  background: #fff;
+}
+
+.info h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.info-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.info-grid div {
+  background: #f0f8ff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 🧩 Templates */
+.templates {
+  text-align: center;
+  padding: 70px 5%;
+}
+
+.template-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.template-cards .card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 240px;
+  transition: transform 0.3s;
+}
+
+.template-cards .card:hover {
+  transform: scale(1.05);
+}
+
+.template-cards img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.templates button {
+  margin-top: 30px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  border: none;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 📞 Contact */
+.contact {
+  text-align: center;
+  padding: 70px 5%;
+  background: #fff;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.contact input,
+.contact textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.contact button {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 🦶 Footer */
+footer {
+  text-align: center;
+  background: #f8f8f8;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* 🎨 More Templates Section */
+.template-section {
+  padding: 70px 5%;
+  background: #eef7ff;
+  text-align: center;
+}
+
+.template-section h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.template-section .templates {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.template-card {
+  background: white;
+  border-radius: 15px;
+  width: 230px;
+  padding: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.template-card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.template-card img {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.template-card p {
+  margin-top: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.use-template-btn {
+  margin-top: 35px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  border: none;
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.use-template-btn:hover {
+  transform: scale(1.08);
+}
+/* CLASSIC TEMPLATE */
+.resume-content.classic {
+  font-family: 'Times New Roman', serif;
+  border-left: 5px solid #0A66C2;
+  padding-left: 12px;
+}
+
+/* MODERN TEMPLATE */
+.resume-content.modern {
+  font-family: 'Poppins', sans-serif;
+  border: 2px solid #2196F3;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* CREATIVE TEMPLATE */
+.resume-content.creative {
+  font-family: 'Montserrat', sans-serif;
+  border: 3px dashed #ff7b00;
+  padding: 15px;
+  background: #fff7eb;
+}
+.template-card.selected {
+  border: 3px solid #007bff;
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+.templates {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.template-card {
+  width: 200px;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  background: #fff;
+  border: 2px solid transparent;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.template-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.template-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.template-card {
+  width: 180px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  background: #fff;
+}
+
+.template-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.template-card:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
+}
+
+.template-card.selected {
+  border: 3px solid #007bff;
+  transform: scale(1.06);
+}
+
+.use-template-btn {
+  padding: 10px 25px;
+  background: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+}
+.category-card {
+  width: 200px;
+  padding: 25px;
+  background: #fff;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.category-card:hover {
+  border-color: #007bff;
+  transform: scale(1.06);
+}
+/* --- RESUME BUILDER PAGE LAYOUT (resume.html) --- */
+
+.main-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 20px auto;
+    gap: 30px;
+    padding: 20px;
+    align-items: flex-start; /* Ensures columns start at the same height */
+}
+
+.input-form {
+    flex: 1; /* Takes 1 part of the space */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.resume-preview-container {
+    flex: 1.5; /* Takes 1.5 parts of the space (wider) */
+    position: sticky; /* Keep the preview visible while scrolling the form */
+    top: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    min-height: 80vh; /* Ensures a minimum height for the preview area */
+}
+
+/* --- FORM ELEMENTS --- */
+
+.input-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.input-form input[type="text"],
+.input-form input[type="email"],
+.input-form input[type="tel"],
+.input-form input[type="url"],
+.input-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.input-form input:focus,
+.input-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+/* --- RESUME PREVIEW STYLING --- */
+
+#output {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    min-height: 70vh;
+    border: 1px solid #ddd;
+}
+
+/* Basic styling for the content inside the resume output */
+.resume-content h2 {
+    color: #007bff;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+.resume-content h3 {
+    color: #333;
+    margin-top: 20px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- MEDIA QUERY for smaller screens (makes it single column) --- */
+
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .resume-preview-container {
+        position: static; /* Remove sticky on mobile */
+        order: -1; /* Show preview above the form on small screens */
+        min-height: auto;
+    }
+}
+/* --- TEMPLATE SPECIFIC STYLING --- */
+
+/* Base resume container style (inherited by all) */
+.resume-content {
+    font-size: 11pt;
+    line-height: 1.4;
+    padding: 10px;
+}
+
+/* 🌟 CLASSIC Template Styling */
+.resume-content.simple {
+    /* Simple, traditional, black and white */
+    border: 1px solid #ccc;
+    font-family: serif;
+}
+
+.resume-content.simple h2 {
+    text-align: center;
+    border-bottom: 2px solid #000;
+    color: #000;
+}
+
+/* 🌟 MODERN Template Styling */
+.resume-content.elegant {
+    /* Uses a clean font and an accent color */
+    font-family: 'Poppins', sans-serif;
+    border-left: 5px solid #007bff; /* Blue accent bar */
+}
+
+.resume-content.elegant h2 {
+    color: #007bff;
+    text-align: left;
+    font-size: 20pt;
+}
+
+.resume-content.elegant h3 {
+    background-color: #f0f8ff; /* Light blue background for sections */
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    color: #333;
+}
+.btn {
+  background: #204b46;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  margin: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background: #173a36;
+}

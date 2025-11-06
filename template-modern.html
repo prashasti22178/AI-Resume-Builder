@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Resume Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">AI Resume Builder</div>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#templates">Templates</a>
+      <a href="login.html">Login</a>
+      <a href="index.html#contact">Contact Us</a>
+    </nav>
+  </header>
+
+  <section id="builder">
+    <h2>Build Your Resume</h2>
+    <form onsubmit="event.preventDefault(); generateResume();">
+      <input type="text" id="fullName" placeholder="Full Name">
+      <input type="email" id="email" placeholder="Email">
+      <input type="text" id="phone" placeholder="Phone">
+      <input type="text" id="address" placeholder="Address">
+      <input type="text" id="linkedin" placeholder="LinkedIn URL">
+      <textarea id="Education" placeholder="Education"></textarea>
+      <textarea id="Skills" placeholder="Skills"></textarea>
+      <textarea id="Experience" placeholder="Experience"></textarea>
+      <button type="button" onclick="generateResume()">Preview Resume</button>
+      <button id="downloadBtn" type="button">Download Resume</button>
+    </form>
+  </section>
+
+  <div id="output"></div>
+
+  <!-- Link JS here -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="resume.js"></script>
+</body>
+</html>

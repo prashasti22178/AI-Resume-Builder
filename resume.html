@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Data Input</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="imageslogo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Resume Builder 📝</div>
+    </header>
+
+    <div class="main-container">
+        
+        <div class="input-form">
+            <h2>Enter Your Details</h2>
+            
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="John Doe" onkeyup="generateResume()">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="john.doe@example.com" onkeyup="generateResume()">
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="(123) 456-7890" onkeyup="generateResume()">
+
+            <label for="address">Address</label>
+            <input type="text" id="address" placeholder="City, State" onkeyup="generateResume()">
+
+            <label for="linkedin">LinkedIn URL (Optional)</label>
+            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/johndoe" onkeyup="generateResume()">
+
+            <label for="Education">🎓 Education</label>
+            <textarea id="Education" rows="4" placeholder="Degree, Institution, Year..." onkeyup="generateResume()"></textarea>
+
+            <label for="Skills">🛠️ Skills (One skill or tag per line)</label>
+            <textarea id="Skills" rows="4" placeholder="e.g., JavaScript, Project Management, AWS..." onkeyup="generateResume()"></textarea>
+
+            <label for="Experience">💼 Professional Experience (One role or bullet per line)</label>
+            <textarea id="Experience" rows="6" placeholder="Job Title, Company, Dates... description..." onkeyup="generateResume()"></textarea>
+
+            <div class="action-buttons">
+                <button onclick="generateSummary()">✨ Generate AI Summary</button>
+                <button id="downloadBtn">⬇️ Download PDF</button>
+            </div>
+        </div>
+
+        <div class="resume-preview-container" id="resumePreview">
+            <h2>Live Preview</h2>
+            <div id="output">
+                <p style="text-align: center; color: #666; padding: 50px;">Start typing to see your resume appear here!</p>
+            </div>
+            <div style="text-align:center; margin-top:20px;">
+  <button onclick="generateResume()" class="btn">Preview Resume</button>
+  <button onclick="generateSummary()" class="btn">✨ AI Summary</button>
+  <button id="downloadBtn" class="btn">⬇️ Download PDF</button>
+</div>
+
+        </div>
+    </div>
+    
+    <script>
+        // 🌟 Get Selected Template from Home Page
+        let template = localStorage.getItem("chosenTemplate") || "classic";
+
+        // 🌟 Generate Resume Preview
+        function generateResume() {
+            const name = document.getElementById("fullName").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const address = document.getElementById("address").value;
+            const linkedin = document.getElementById("linkedin").value;
+            const education = document.getElementById("Education").value;
+            const skills = document.getElementById("Skills").value;
+            const experience = document.getElementById("Experience").value;
+
+            const resumeHTML = `
+                <div class="resume-content ${template}">
+                    <h2>${name}</h2>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Phone:</strong> ${phone}</p>
+                    <p><strong>Address:</strong> ${address}</p>
+                    ${linkedin ? `<p><strong>LinkedIn:</strong> <a href="${linkedin}" target="_blank">${linkedin}</a></p>` : ""}
+
+                    <h3>🎓 Education</h3>
+                    <p>${education.replace(/\n/g, "<br>")}</p>
+
+                    <h3>🛠️ Skills</h3>
+                    <p>${skills.replace(/\n/g, "<br>")}</p>
+
+                    <h3>💼 Experience</h3>
+                    <p>${experience.replace(/\n/g, "<br>")}</p>
+                </div>
+            `;
+
+            document.getElementById("output").innerHTML = `<div id="resumePreview">${resumeHTML}</div>`;
+        }
+
+        // 🌟 AI Summary
+        async function generateSummary() {
+            const name = document.getElementById("fullName").value.trim();
+            const skills = document.getElementById("Skills").value.trim();
+            const experience = document.getElementById("Experience").value.trim();
+
+            if (!skills || !experience) {
+                alert("⚠️ Please enter your Skills and Experience first.");
+                return;
+            }
+
+            const data = { name, skills, experience };
+
+            try {
+                const res = await fetch("http://localhost:5000/summary", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await res.json();
+
+                if (result.summary) {
+                    document.getElementById("output").innerHTML += `
+                        <h3>✨ AI Summary</h3>
+                        <p>${result.summary}</p>
+                    `;
+                    alert("✅ AI Summary added to your resume!");
+                } else {
+                    alert("❌ Failed to get AI summary");
+                }
+            } catch (error) {
+                console.error(error);
+                alert("⚠️ Error connecting to AI server.");
+            }
+        }
+
+        // 🌟 Download PDF
+        document.getElementById("downloadBtn").addEventListener("click", function () {
+            const resumeContent = document.getElementById("resumePreview");
+            const opt = {
+                margin: 0.5,
+                filename: 'My_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            // Note: html2pdf() requires the external library linked in the <head>
+            html2pdf().from(resumeContent).set(opt).save();
+        });
+
+        // Run resume generation once on load to show the header/template
+        window.onload = generateResume;
+    </script>
+</body>
+<!-- for downloading pdf -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<!-- your own JavaScript -->
+<script src="resume.js"></script>
+
+</html>
