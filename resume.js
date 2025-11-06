@@ -113,7 +113,10 @@ document.getElementById("downloadBtn")?.addEventListener("click", () => {
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
 
-    html2pdf().from(resumeContent).set(opt).save();
+    // Short delay ensures HTML is rendered
+    setTimeout(() => {
+        html2pdf().from(resumeContent).set(opt).save();
+    }, 100);
 });
 
 // ---------------- Template Filtering on Homepage ----------------
