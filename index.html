@@ -1,225 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Resume Builder</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="imageslogo.png">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Resume Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="imageslogo.png" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
+  <!-- 🌟 Navbar -->
+  <header class="navbar">
+    <div class="logo">AI Resume Builder</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#templates">Templates</a>
+      <a href="login.html">Login</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </header>
 
-    <header class="navbar">
-        <div class="logo">AI Resume Builder</div>
-        <nav>
-            <a href="index.html#home">Home</a>
-            <a href="index.html#templates">Templates</a>
-            <a href="login.html">Login</a>
-            <a href="index.html#contact">Contact Us</a>
-        </nav>
-    </header>
+  <!-- 🏠 Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Build Your Resume in Seconds Powered by AI ⚡</h1>
+      <p>Create a stunning, professional resume instantly. Choose templates, personalize easily, and let AI write your summary.</p>
+      <button onclick="window.location.href='resume.html'">✨ Start Building Resume</button>
+    </div>
 
+    <div class="hero-slideshow">
+      <img src="https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="active" alt="Team collaboration" />
+      <img src="https://i.pinimg.com/1200x/76/e2/a6/76e2a6d3be808a8e4500572eac1e55c7.jpg" alt="Futuristic AI data" />
+      <img src="https://i.pinimg.com/1200x/11/ba/97/11ba9720b8b715d3e42985ff41811302.jpg" alt="Clean resume template" />
+      <img src="https://i.pinimg.com/1200x/55/10/be/5510bea70caaaf24212707060b617d49.jpg" alt="Laptop workspace" />
+      <img src="https://i.pinimg.com/1200x/0f/ab/8b/0fab8b0789410afd60d6821968c6fe6d.jpg" alt="Professional setup" />
+    </div>
+  </section>
 
-    <section id="home" class="hero">
-        <div class="hero-text">
-            <h1>Build Your Resume in Seconds Powered by AI ⚡</h1>
-            <p>Create a stunning, professional resume instantly.
-                Choose templates, personalize easily, and let AI write your summary.</p>
-            <button onclick="window.location.href='resume.html'">✨ Start Building Resume</button>
-        </div>
+  <!-- 💡 Info Section -->
+  <section class="info">
+    <h2>Why Choose AI Resume Builder?</h2>
+    <div class="info-grid">
+      <div>
+        <h3>⚙️ Smart AI Assistance</h3>
+        <p>Our AI instantly generates personalized summaries and skill highlights to make you stand out.</p>
+      </div>
+      <div>
+        <h3>🚀 Super Fast</h3>
+        <p>Build your complete resume within minutes no manual formatting or typing errors.</p>
+      </div>
+      <div>
+        <h3>🎨 Choose Your Template</h3>
+        <p>Select from modern, elegant, or creative templates to match your personality and career.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="hero-slideshow">
-            <img src="https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                class="active" alt="Team members collaborating in an office">
-            <img src="https://i.pinimg.com/1200x/76/e2/a6/76e2a6d3be808a8e4500572eac1e55c7.jpg"
-                alt="Futuristic AI data or abstract technology">
-            <img src="https://i.pinimg.com/1200x/11/ba/97/11ba9720b8b715d3e42985ff41811302.jpg"
-                alt="Clean professional resume template">
-            <img src="https://i.pinimg.com/1200x/55/10/be/5510bea70caaaf24212707060b617d49.jpg"
-                alt="Person working on a laptop at a desk">
-            <img src="https://i.pinimg.com/1200x/0f/ab/8b/0fab8b0789410afd60d6821968c6fe6d.jpg"
-                alt="Clean professional resume template">
-        </div>
-    </section>
+  <!-- 🎨 Templates Section -->
+  <section id="templates" style="padding: 50px 0;">
+    <h2 style="text-align:center;">Choose Template Style</h2>
 
-    <section class="info">
-        <h2>Why Choose AI Resume Builder?</h2>
-        <div class="info-grid">
-            <div>
-                <h3>⚙️ Smart AI Assistance</h3>
-                <p>Our AI instantly generates personalized summaries and skill highlights to make you stand out.</p>
-            </div>
-            <div>
-                <h3>🚀 Super Fast</h3>
-                <p>Build your complete resume within minutes no manual formatting or typing errors.</p>
-            </div>
-            <div>
-                <h3>🎨 Choose Your Template</h3>
-                <p>Select from modern, elegant, or creative templates to match your personality and career.</p>
-            </div>
-        </div>
-    </section>
+    <div class="template-container category-filters">
+      <div class="category-card" data-filter="classic" onclick="filterTemplates(this)">
+        <p>Classic</p>
+      </div>
+      <div class="category-card" data-filter="modern" onclick="filterTemplates(this)">
+        <p>Modern</p>
+      </div>
+      <div class="category-card" data-filter="creative" onclick="filterTemplates(this)">
+        <p>Creative</p>
+      </div>
+      <div class="category-card" data-filter="all" onclick="filterTemplates(this)">
+        <p>Show All</p>
+      </div>
+    </div>
 
-    <section id="templates" style="padding: 50px 0;">
-        <h2 style="text-align:center;">Choose Template Style</h2>
+    <div class="template-container individual-templates" id="templatesMore" style="display:none; margin-top:20px;">
+      <div class="template-card" data-template="simple" data-category="classic" onclick="selectTemplateCard(event)">
+        <img src="https://i.pinimg.com/1200x/f1/0b/d3/f10bd33d581f63c8d10e06538b0fefbd.jpg" alt="Simple Classic" />
+        <p>Simple Classic</p>
+      </div>
+      <div class="template-card" data-template="professional" data-category="classic" onclick="selectTemplateCard(event)">
+        <img src="https://i.pinimg.com/1200x/d3/0e/42/d30e42e7488c436c96abfcbd3e7f1730.jpg" alt="Professional Classic" />
+        <p>Professional</p>
+      </div>
 
-        <div class="template-container category-filters">
-            <div class="category-card" data-filter="classic" onclick="filterTemplates(this)">
-                <p>Classic</p>
-            </div>
-            <div class="category-card" data-filter="modern" onclick="filterTemplates(this)">
-                <p>Modern</p>
-            </div>
-            <div class="category-card" data-filter="creative" onclick="filterTemplates(this)">
-                <p>Creative</p>
-            </div>
-            <div class="category-card" data-filter="all" onclick="filterTemplates(this)">
-                <p>Show All</p>
-            </div>
-        </div>
+      <div class="template-card" data-template="elegant" data-category="modern" onclick="selectTemplateCard(event)">
+        <img src="https://i.pinimg.com/1200x/68/f7/7f/68f77f25058a23ced96512b62f1ce5c3.jpg" alt="Elegant Modern" />
+        <p>Elegant Modern</p>
+      </div>
+      <div class="template-card" data-template="darkmode" data-category="modern" onclick="selectTemplateCard(event)">
+        <img src="https://i.etsystatic.com/9314867/r/il/c4a38d/1709155262/il_fullxfull.1709155262_10oy.jpg" alt="Dark Mode Modern" />
+        <p>Dark Mode</p>
+      </div>
 
-        <div class="template-container individual-templates" id="templatesMore" style="display:none; margin-top:20px;">
+      <div class="template-card" data-template="minimalist" data-category="creative" onclick="selectTemplateCard(event)">
+        <img src="https://i.pinimg.com/1200x/72/68/3b/72683be0001cfd0f5087709f6ad825c0.jpg" alt="Minimalist Creative" />
+        <p>Minimalist</p>
+      </div>
 
-            <div class="template-card" data-template="simple" data-category="classic"
-                onclick="selectTemplateCard(event)">
-                <img src="https://i.pinimg.com/1200x/f1/0b/d3/f10bd33d581f63c8d10e06538b0fefbd.jpg"
-                    alt="Simple Classic">
-                <p>Simple Classic</p>
-            </div>
-            <div class="template-card" data-template="professional" data-category="classic"
-                onclick="selectTemplateCard(event)">
-                <img src="https://i.pinimg.com/1200x/d3/0e/42/d30e42e7488c436c96abfcbd3e7f1730.jpg"
-                    alt="Professional Classic">
-                <p>Professional</p>
-            </div>
+      <!-- ✅ Fixed this line -->
+      <div class="template-card" data-template="modern" data-category="creative" onclick="selectTemplateCard(event)">
+        <img src="https://i.pinimg.com/1200x/4f/d6/9c/4fd69c5f480ae990d9aaf241acb4bc67.jpg" alt="Modern Creative" />
+        <p>Modern</p>
+      </div>
 
-            <div class="template-card" data-template="elegant" data-category="modern"
-                onclick="selectTemplateCard(event)">
-                <img src="https://i.pinimg.com/1200x/68/f7/7f/68f77f25058a23ced96512b62f1ce5c3.jpg"
-                    alt="Elegant Modern">
-                <p>Elegant Modern</p>
-            </div>
-            <div class="template-card" data-template="darkmode" data-category="modern"
-                onclick="selectTemplateCard(event)">
-                <img src="https://i.etsystatic.com/9314867/r/il/c4a38d/1709155262/il_fullxfull.1709155262_10oy.jpg"
-                    alt="Dark Mode Modern">
-                <p>Dark Mode</p>
-            </div>
+      <div style="text-align:center; margin-top:20px;">
+        <button id="useTemplateBtn" class="use-template-btn" style="display:none;">Use Selected Template 🎯</button>
+      </div>
+    </div>
+  </section>
 
-            <div class="template-card" data-template="minimalist" data-category="creative"
-                onclick="selectTemplateCard(event)">
-                <img src="https://i.pinimg.com/1200x/72/68/3b/72683be0001cfd0f5087709f6ad825c0.jpg"
-                    alt="Minimalist Creative">
-                <p>Minimalist</p>
-            </div>
-            <div class="template-card" data-template="modern" data-category="creative" onclick=""
-                selectTemplateCard(event)">
-                <img src="https://i.pinimg.com/1200x/4f/d6/9c/4fd69c5f480ae990d9aaf241acb4bc67.jpg"
-                    alt="Modern Creative">
-                <p>Modern</p>
-            </div>
+  <!-- 📩 Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Have any questions? We’d love to hear from you.</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
 
-            <div style="text-align:center; margin-top:20px;">
-                <button id="useTemplateBtn" class="use-template-btn" style="display:none;">Use Selected Template
-                    🎯</button>
-            </div>
-    </section>
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>Have any questions? We’d love to hear from you.</p>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+  <!-- 🌍 Footer -->
+  <footer>
+    <p>© 2025 AI Resume Builder | Built with 💙 by Future Formers</p>
+  </footer>
 
-    <footer>
-        <p>© 2025 AI Resume Builder | Built with 💙 by Future Formers</p>
-    </footer>
+  <!-- 💻 Script -->
+  <script>
+    function filterTemplates(element) {
+      document.querySelectorAll('.category-card').forEach(c => c.classList.remove('selected'));
+      element.classList.add('selected');
+      const filterValue = element.getAttribute('data-filter');
+      const templateContainer = document.getElementById('templatesMore');
+      const templateCards = document.querySelectorAll('#templatesMore .template-card');
+      templateContainer.style.display = 'flex';
 
-    <script>
-        // 1. Template Filtering Function (Called when clicking Classic/Modern/etc.)
-        function filterTemplates(element) {
-            // Highlight the active category filter
-            document.querySelectorAll('.category-card').forEach(c => c.classList.remove('selected'));
-            element.classList.add('selected');
-
-            const filterValue = element.getAttribute('data-filter');
-            const templateContainer = document.getElementById("templatesMore");
-            const templateCards = document.querySelectorAll('#templatesMore .template-card');
-
-            // Show the container holding the individual templates
-            templateContainer.style.display = 'flex';
-
-            templateCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-
-                // Show only cards matching the filter
-                if (filterValue === 'all' || category === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-                // Also ensure individual cards lose selection on filter change
-                card.classList.remove('selected');
-            });
-
-            // Hide the 'Use Selected Template' button until an individual template is clicked
-            document.getElementById("useTemplateBtn").style.display = "none";
+      templateCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
         }
+        card.classList.remove('selected');
+      });
+      document.getElementById('useTemplateBtn').style.display = 'none';
+    }
 
-        // 2. Individual Template Selection Function (Called when clicking a specific template image)
-        function selectTemplateCard(e) {
-            const card = e.target.closest('.template-card');
+    function selectTemplateCard(e) {
+      const card = e.target.closest('.template-card');
+      document.querySelectorAll('.individual-templates .template-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      const chosen = card.getAttribute('data-template');
+      localStorage.setItem('chosenTemplate', chosen);
+      document.getElementById('useTemplateBtn').style.display = 'inline-block';
+    }
 
-            // Ensure only one individual template card is selected at a time
-            document.querySelectorAll('.individual-templates .template-card').forEach(c => c.classList.remove('selected'));
-            card.classList.add('selected');
+    document.getElementById('useTemplateBtn')?.addEventListener('click', () => {
+      const chosen = localStorage.getItem('chosenTemplate');
+      if (!chosen) {
+        alert('⚠️ Please select an individual template first!');
+        return;
+      }
+      window.location.href = 'resume.html';
+    });
 
-            const chosen = card.getAttribute('data-template');
-            localStorage.setItem("chosenTemplate", chosen);
+    // Slideshow
+    const slides = document.querySelectorAll('.hero-slideshow img');
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 2500);
 
-            // Show the final action button
-            document.getElementById("useTemplateBtn").style.display = "inline-block";
-        }
-
-        // 3. Navigation to Resume Builder
-        document.getElementById("useTemplateBtn")?.addEventListener("click", () => {
-            const chosen = localStorage.getItem("chosenTemplate");
-            if (!chosen) {
-                alert("⚠️ Please select an individual template first!");
-                return;
-            }
-            window.location.href = "resume.html";
-        });
-
-        // 4. Slideshow Script
-        const slides = document.querySelectorAll('.hero-slideshow img');
-        let index = 0;
-        setInterval(() => {
-            slides[index].classList.remove('active');
-            index = (index + 1) % slides.length;
-            slides[index].classList.add('active');
-        }, 2500);
-
-        // 5. Initial Load: Select 'Show All' but keep templates hidden initially
-        window.onload = function () {
-            const allFilter = document.querySelector('.category-card[data-filter="all"]');
-            if (allFilter) {
-                allFilter.classList.add('selected'); // Just highlight 'Show All'
-                // We keep templatesMore hidden until the user clicks a filter
-            }
-        };
-    </script>
-
+    window.onload = function () {
+      const allFilter = document.querySelector('.category-card[data-filter="all"]');
+      if (allFilter) {
+        allFilter.classList.add('selected');
+      }
+    };
+  </script>
 </body>
-
-
 </html>
