@@ -3,15 +3,19 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from openai import OpenAI
 
-# 🔑 Replace this with your real key (keep it private)
-OPENAI_API_KEY = "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"
-
+# ---------------- Flask App Setup ----------------
 app = Flask(__name__)
-CORS(app)  # Allow frontend → backend request
+CORS(app)  # Allow frontend → backend requests
 
-# Initialize OpenAI Client
-client = OpenAI(api_key="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")
+# ---------------- OpenAI Client ----------------
+# Use environment variable for safety
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    raise ValueError("❌ Please set your OPENAI_API_KEY as an environment variable!")
 
+client = OpenAI(api_key=OPENAI_API_KEY)
+
+# ---------------- Generate AI Summary ----------------
 @app.route('/summary', methods=['POST'])
 def generate_summary():
     data = request.json
@@ -33,7 +37,7 @@ def generate_summary():
 
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",    # If this fails, use `gpt-4.1` if available
+            model="gpt-3.5-turbo",   # Or gpt-4.1 if you have access
             messages=[
                 {"role": "system", "content": "You write excellent resume summaries."},
                 {"role": "user", "content": prompt}
@@ -49,6 +53,6 @@ def generate_summary():
         print("❌ ERROR:", e)
         return jsonify({"error": "Server error generating summary."}), 500
 
-
+# ---------------- Run App ----------------
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
