@@ -1,51 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Resume Builder</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="imageslogo.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Resume Builder</title>
+<link rel="stylesheet" href="template-modern.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
-
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">AI Resume Builder</div>
-    <nav>
-      <a href="index.html#home">Home</a>
-      <a href="index.html#templates">Templates</a>
-      <a href="login.html">Login</a>
-      <a href="index.html#contact">Contact Us</a>
-    </nav>
-  </header>
+<header class="navbar">
+  <div class="logo">AI Resume Builder</div>
+</header>
 
-  <!-- Resume Builder Form -->
-  <section id="builder">
-    <h2>Build Your Resume</h2>
-    <form id="resumeForm">
-      <input type="text" id="fullName" placeholder="Full Name" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="text" id="phone" placeholder="Phone" required>
-      <input type="text" id="address" placeholder="Address">
-      <input type="text" id="linkedin" placeholder="LinkedIn URL">
+<section id="builder">
+  <h2>Build Your Resume</h2>
+  <form onsubmit="event.preventDefault(); generateResume();">
+    <input type="text" id="fullName" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="phone" placeholder="Phone">
+    <input type="text" id="address" placeholder="Address">
+    <input type="text" id="linkedin" placeholder="LinkedIn URL">
+    <textarea id="Education" placeholder="Education"></textarea>
+    <textarea id="Skills" placeholder="Skills"></textarea>
+    <textarea id="Experience" placeholder="Experience"></textarea>
+    <button type="button" onclick="generateResume()">Preview Resume</button>
+    <button type="button" onclick="generateSummary()">Generate AI Summary</button>
+    <button type="button" id="downloadBtn">Download Resume</button>
+  </form>
+</section>
 
-      <textarea id="Education" placeholder="Education"></textarea>
-      <textarea id="Skills" placeholder="Skills"></textarea>
-      <textarea id="Experience" placeholder="Experience"></textarea>
+<div id="output"></div>
 
-      <div class="buttons">
-        <button type="button" id="previewBtn">Preview Resume</button>
-        <button type="button" id="downloadBtn">Download Resume</button>
-      </div>
-    </form>
-  </section>
-
-  <!-- Resume Output -->
-  <div id="output"></div>
-
-  <!-- JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script src="resume.js"></script>
+<script src="resume.js"></script>
 </body>
 </html>
