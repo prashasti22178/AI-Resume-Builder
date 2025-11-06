@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Resume Builder</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="imageslogo.png">
 </head>
+
 <body>
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">AI Resume Builder</div>
     <nav>
@@ -15,25 +20,31 @@
     </nav>
   </header>
 
+  <!-- Resume Builder Form -->
   <section id="builder">
     <h2>Build Your Resume</h2>
-    <form onsubmit="event.preventDefault(); generateResume();">
-      <input type="text" id="fullName" placeholder="Full Name">
-      <input type="email" id="email" placeholder="Email">
-      <input type="text" id="phone" placeholder="Phone">
+    <form id="resumeForm">
+      <input type="text" id="fullName" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="phone" placeholder="Phone" required>
       <input type="text" id="address" placeholder="Address">
       <input type="text" id="linkedin" placeholder="LinkedIn URL">
+
       <textarea id="Education" placeholder="Education"></textarea>
       <textarea id="Skills" placeholder="Skills"></textarea>
       <textarea id="Experience" placeholder="Experience"></textarea>
-      <button type="button" onclick="generateResume()">Preview Resume</button>
-      <button id="downloadBtn" type="button">Download Resume</button>
+
+      <div class="buttons">
+        <button type="button" id="previewBtn">Preview Resume</button>
+        <button type="button" id="downloadBtn">Download Resume</button>
+      </div>
     </form>
   </section>
 
+  <!-- Resume Output -->
   <div id="output"></div>
 
-  <!-- Link JS here -->
+  <!-- JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="resume.js"></script>
 </body>

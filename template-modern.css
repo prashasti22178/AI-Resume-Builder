@@ -1,65 +1,152 @@
+/* ---------------- General ---------------- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+header.navbar {
+    background: #204b46;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+header.navbar .logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+header.navbar nav a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------- Builder Form ---------------- */
+#builder {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#builder h2 {
+    text-align: center;
+    color: #204b46;
+    margin-bottom: 20px;
+}
+
+#builder form input,
+#builder form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+#builder form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#builder .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+#builder .buttons button {
+    background: #204b46;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#builder .buttons button:hover {
+    background: #163a37;
+}
+
+/* ---------------- Resume Output ---------------- */
+#output {
+    max-width: 750px;
+    margin: 30px auto;
+}
+
+/* Resume card */
 .template-modern {
-  width: 750px;
-  margin: auto;
-  display: flex;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,.1);
-  overflow: hidden;
+    width: 100%;
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.1);
+    overflow: hidden;
 }
 
 .template-modern .left {
-  width: 35%;
-  background: #204b46;
-  color: white;
-  text-align: center;
-  padding: 30px;
+    width: 35%;
+    background: #204b46;
+    color: white;
+    text-align: center;
+    padding: 30px;
 }
 
 .template-modern .profile {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
 }
 
 .template-modern .right {
-  width: 65%;
-  padding: 30px;
+    width: 65%;
+    padding: 30px;
 }
 
 .template-modern h3 {
-  margin-top: 25px;
-  border-bottom: 2px solid #204b46;
-  padding-bottom: 5px;
-}
-.resume-wrapper {
-  width: 800px;
-  padding: 30px;
-  margin: auto;
-  background: #ffffff;
-  border-radius: 10px;
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  box-shadow: 0 0 12px rgba(143, 118, 118, 0.15);
+    margin-top: 25px;
+    border-bottom: 2px solid #204b46;
+    padding-bottom: 5px;
 }
 
-.resume-wrapper h1 {
-  font-size: 32px;
-  color: #2c3e50;
-  text-align: center;
-  margin-bottom: 10px;
+.template-modern p {
+    margin-top: 5px;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
-.resume-wrapper h2 {
-  margin-top: 25px;
-  border-bottom: 2px solid #2c3e50;
-  padding-bottom: 5px;
-  font-size: 22px;
-}
-
-.resume-wrapper p {
-  font-size: 16px;
-  margin-top: 5px;
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+    .template-modern {
+        flex-direction: column;
+    }
+    .template-modern .left,
+    .template-modern .right {
+        width: 100%;
+    }
+    header.navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header.navbar nav a {
+        margin: 10px 0 0 0;
+    }
 }
